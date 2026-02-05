@@ -44,8 +44,44 @@ const userSchema = new mongoose.Schema({
 // Creating a Model/ Collection 
 
 
-
 let User = mongoose.model("User", userSchema);
+
+
+
+
+// Inserting in Mongoose 
+
+
+
+let user1 =  new User ({
+
+    name : "Shoaib",
+    email : "shoaibbabar524@gmail.com",
+    age: 48
+
+
+})
+
+
+
+user1.save()
+
+.then((res)=>{
+
+    console.log(res);
+
+
+})
+
+.catch((err)=>{
+
+    console.log(err);
+
+})
+
+
+
+
 
 
 
