@@ -64,3 +64,36 @@ const bookSchema = new mongoose.Schema({
 let Book = mongoose.model("Book", bookSchema);
 
 
+
+
+
+
+
+
+
+let book1 = new Book({
+
+    title : "Introduction to Python",
+    author : "Shoaib Akhtar",
+    price : 25000
+
+})
+
+
+
+book1.save()
+        
+    .then((res)=>{
+
+        console.log(res);
+
+
+    })
+
+    .catch((err)=>{
+
+        console.log(err);
+
+
+    })
+
