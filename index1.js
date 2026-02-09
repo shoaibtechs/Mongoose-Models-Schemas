@@ -145,3 +145,4 @@ User.insertMany([
 
 
 
+module.exports = User;
