@@ -1,0 +1,52 @@
+==========================================================
+          MONGOOSE SCHEMA & VALIDATION CHEAT SHEET
+==========================================================
+
+1. GENERAL CONSTRAINTS (For All Types)
+--------------------------------------
+- required: true      | Field cannot be empty.
+- default: 'value'    | Sets a value if none is provided.
+- unique: true        | Value must be different for every document.
+- select: false       | Hides field from query results (e.g. passwords).
+
+2. STRING CONSTRAINTS (Text)
+----------------------------
+- trim: true          | Removes extra spaces from start & end.
+- lowercase: true     | Converts text to small letters.
+- uppercase: true     | Converts text to capital letters.
+- minLength: [num]    | Minimum characters allowed.
+- maxLength: [num]    | Maximum characters allowed.
+- enum: ['a', 'b']    | Only allows specific values from the list.
+
+3. NUMBER CONSTRAINTS (Math)
+----------------------------
+- min: [num]          | Minimum numeric value allowed.
+- max: [num]          | Maximum numeric value allowed.
+
+4. EXAMPLE SCHEMA CODE
+----------------------
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: [true, "Username is required"],
+        trim: true,
+        minLength: 3
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true
+    },
+    age: {
+        type: Number,
+        min: 18,
+        max: 65
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user'
+    }
+});
+
