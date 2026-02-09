@@ -62,4 +62,6 @@ const bookSchema = new mongoose.Schema({
 
 
 
+let Book = mongoose.model("Book", bookSchema);
+
 
